@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commentaires</title>
+</head>
+<body>
+    <h1>Commentaires</h1>
+    <% if (commentaires.length > 0) { %>
+        <% commentaires.forEach(function(commentaire) { %>
+            <div>
+                <p><%= commentaire.contenu %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>Aucun commentaire trouvé pour cette technologie.</p>
+    <% } %>
+</body>
+</html>
