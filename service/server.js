@@ -153,8 +153,6 @@ app.get('/commentaire/:technologie_id', async (req, res) => {
   }
 });
 
-
-
 app.listen(8000, function () {
   console.log("serveur sur le port 8000");
 });
