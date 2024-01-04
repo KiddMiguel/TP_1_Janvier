@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Utilisateur</title>
+    <style>
+        .form-container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .button-action {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .button-action.red {
+            background-color: #f44336;
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profil de <%= utilisateur.nom %></h1>
+    <a href="/technologie/getAll" class="button-action">Voir Technologies</a>
+    <a href="" class="button-action">Voir Commentaires</a>
+    <div class="form-container">
+        <form action="/utilisateur/edit/<%= utilisateur.id %>" method="POST">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" value="<%= utilisateur.nom %>" required>
+
+            <label for="prenom">Token:</label>
+            <input type="text" id="prenom" name="prenom" value="<%= token.token %>" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= utilisateur.email %>" required>
+
+            <label for="role">Rôle:</label>
+            <select id="role" name="role">
+                <option value="utilisateur" <% if(utilisateur.role === 'utilisateur') { %>selected<% } %>>Utilisateur</option>
+                <option value="journaliste" <% if(utilisateur.role === 'journaliste') { %>selected<% } %>>Journaliste</option>
+            </select>
+
+            <input type="submit" value="Mettre à jour">
+        </form>
+    
+    </div>
+</body>
+</html>

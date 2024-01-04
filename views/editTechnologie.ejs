@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Technologie</title>
+    <style>
+        /* Styles ici */
+        .form-container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label, input, select, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modifier la Technologie</h1>
+    <div class="form-container">
+        <form action="/technologie/edit/<%= technologie.id %>" method="POST">
+            <label for="nom">Nom de la technologie:</label>
+            <input type="text" id="nom" name="nom" value="<%= technologie.nom %>" required>
+
+            <label for="date_creation">Date de Création:</label>
+            <input type="date" id="date_creation" name="date_creation" value="<%= technologie.date_creation.toISOString().split('T')[0] %>" required>
+
+
+            <label for="utilisateur_id">Utilisateur ID:</label>
+            <input type="number" id="utilisateur_id" name="utilisateur_id" value="<%= technologie.utilisateur_id %>" required>
+
+            <button type="submit">Mettre à jour</button>
+        </form>
+    </div>
+</body>
+</html>

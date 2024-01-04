@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Technologies</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-voir {
+            background-color: #4CAF50; 
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button-supprimer {
+            background-color: #f44336; 
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Technologies</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date de Création</th>
+                <th>Utilisateur ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% technologies.forEach(function(technologie) { %>
+                <tr>
+                    <td><%= technologie.nom %></td>
+                    <td><%= technologie.date_creation %></td>
+                    <td><%= technologie.utilisateur_id %></td>
+                    <td>
+                        <button class="button-voir" onclick="location.href='/technologie/voir/<%= technologie.id %>'">Voir</button>
+                        <button class="button-supprimer" onclick="location.href='/technologie/supprimer/<%= technologie.id %>'">Supprimer</button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
